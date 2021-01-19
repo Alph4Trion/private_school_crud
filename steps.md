@@ -33,3 +33,9 @@ npm i mysql2
 
 # Step 11.
 create a connection to db and export it 
+
+# Step 12. 
+implement the code for ./routes/books.js
+where:
+a) it captures the /books/ request
+b) connects to the database and do A SELECT query

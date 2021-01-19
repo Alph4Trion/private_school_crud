@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <div>
+    <% for(var i = 0; i < books.length; i++) { %>
+    <span>
+      <%= books[i].id %>
+    </span>&nbsp;
+    <span>
+      <%= books[i].title %>
+    </span>&nbsp;
+    <span>
+      <%= books[i].author %>
+    </span>&nbsp;
+    <span>
+      <%= books[i].created_at %>
+    </span>&nbsp;
+    <span>
+      <%= books[i].updated_at %>
+    </span><br />
+    <% } %>
+  </div>
+
+</body>
+
+</html>

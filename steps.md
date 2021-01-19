@@ -39,3 +39,10 @@ implement the code for ./routes/books.js
 where:
 a) it captures the /books/ request
 b) connects to the database and do A SELECT query
+c) renders the view by sending the title and books rows (as a table) to the view
+
+# Step 13.
+created a new view ./views/books.ejs
+that has ahtarma code with <% %> and <%= %> in order to
+a)execute a simple js code such as a for when using <% %> and
+b)printing on the view the values when using <%= %>

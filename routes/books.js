@@ -11,9 +11,10 @@ var dbconnection = require('../lib/db');
 // URL: http://localhost:3000/books/
 router.get('/list/:message?', function(req, res, next) {
     const query = "SELECT * FROM books";
-    console.log("outside" + req.params.message);
+    console.log(req.query);
+    // console.log("outside" + req.params.message);
     dbconnection.query(query, function(err, rows) {
-        console.log("inside" + req.params.message);
+        // console.log("inside" + req.params.message);
         if(err) {
             res.render('books', { title: 'Books - ERROR', books: '', message: req.params.message });
         } else {
@@ -31,7 +32,7 @@ router.get('/add/', function(req, res, next) {
 
 router.post('/add', function(req, res, next) {
     const query = "INSERT INTO `books`(`title`, `author`) VALUES('"+ req.body.title + "', '" + req.body.author + "')";
-    console.log(query);
+    // console.log(query);
     dbconnection.query(query, function(err, status) {
         // NOT OK - Error!!!
         if(err) {

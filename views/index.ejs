@@ -6,6 +6,22 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>Welcome to <%= title2 %></p>
+    <%
+      function addTwoNums(x,y) {return(x+y);}
+      class AddTwoNums {
+        constructor(x,y) {
+          this.countX = x
+          this.countY = y
+          <!-- return(new Object(x+y)); -->
+        }
+        
+      }
+    %>
+    <%= addTwoNums(1,2); %><br />
+    <%= JSON.stringify(new AddTwoNums(1,2)) %><br />
+    <% var myadd = new AddTwoNums(1,2) %>
+    countX: <%= myadd.countX %>
+      
   </body>
 </html>

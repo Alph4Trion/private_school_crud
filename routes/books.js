@@ -58,8 +58,32 @@ router.post('/add', function(req, res, next) {
 
 // DELETE
 // http://localhost:3000/books/delete/1 <---- we delete the record with id = 1
+router.get('/delete/:id', function(req, res, next) {
+    var query = "DELETE FROM `books` WHERE `id` = ?";
+    const bookId = req.params.id;
+    dbconnection.execute(query, [bookId], function(err, result, fields) {
+        if(err) {
+
+        } else {
+            res.redirect('/books/list/Book with id ' + bookId + " is deleted!");        
+        }
+    });
+});
 
 // UPDATE
+// show form with data
+router.get('/edit/:id', function(req, res, next) {
+    const bookId = req.params.id;
+    var query = "SELECT * FROM `books` WHERE `id` = ?";
+    dbconnection.execute(query, [bookId], function(err, result, fields) {
+        console.log(result[0]);
+        let book = new Book(result[0].id, result[0].title, result[0].author);
+        console.log(book);
+        res.render('books_edit', { title: 'Books - Edit', message:'',  book: book});
+    });
+});
 
+// UPDATE 
+// call router.post('/update/:id)
 module.exports = router;
   

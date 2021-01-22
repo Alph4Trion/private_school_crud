@@ -13,6 +13,7 @@ var Book = require('../models/book');
 // list - SELECT
 router.get('/list/:message?', function(req, res, next) {
     const query = "SELECT * FROM books";
+    var fullUrl = req.protocol + '://' + req.get('host') + req.baseUrl;
     console.log(req.query);
     // console.log("outside" + req.params.message);
     dbconnection.query(query, function(err, rows) {
@@ -20,7 +21,7 @@ router.get('/list/:message?', function(req, res, next) {
         if(err) {
             res.render('books', { title: 'Books - ERROR', books: '', message: req.params.message });
         } else {
-            res.render('books', { title: 'Books', books:rows, message: req.params.message });
+            res.render('books', { title: 'Books', books:rows, message: req.params.message, url: fullUrl });
         }
     });
 });
@@ -56,7 +57,7 @@ router.post('/add', function(req, res, next) {
 });
 
 // DELETE
-
+// http://localhost:3000/books/delete/1 <---- we delete the record with id = 1
 
 // UPDATE
 

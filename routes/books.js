@@ -85,5 +85,17 @@ router.get('/edit/:id', function(req, res, next) {
 
 // UPDATE 
 // call router.post('/update/)
+router.post('/update', function(req, res, next) {
+    let book = new Book(req.body.id, req.body.title, req.body.author);
+    const query = "UPDATE `books` SET `title` = ?, `author` = ? WHERE `id` = ?;";
+    dbconnection.execute(query, [book.title, book.author, book.id], function(err, status) {
+        if(err) {
+            res.render('books_edit', { title: 'Books - Edit', message:'Update failed! Check the values again!',  book: book});
+        } else {
+            res.redirect('/books/list/Book with id ' + book.id + " is updated!");
+        }
+    });
+});
+
 module.exports = router;
   

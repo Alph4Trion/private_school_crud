@@ -84,6 +84,6 @@ router.get('/edit/:id', function(req, res, next) {
 });
 
 // UPDATE 
-// call router.post('/update/:id)
+// call router.post('/update/)
 module.exports = router;
   

@@ -14,7 +14,6 @@ var Book = require('../models/book');
 router.get('/list/:message?', function(req, res, next) {
     const query = "SELECT * FROM books";
     var fullUrl = req.protocol + '://' + req.get('host') + req.baseUrl;
-    console.log(req.query);
     // console.log("outside" + req.params.message);
     dbconnection.query(query, function(err, rows) {
         // console.log("inside" + req.params.message);
@@ -39,8 +38,6 @@ router.post('/add', function(req, res, next) {
     let book = new Book(undefined, req.body.title, req.body.author);
     const query = "INSERT INTO `books`(`title`, `author`) VALUES('"+ book.title + "', '" + book.author + "')";
     const query2 = `INSERT INTO books(title, author) VALUES('${book.title}', '${book.author}');`;
-    console.log("q"); console.log(query);
-    console.log("q2"); console.log(query2);
     dbconnection.query(query2, function(err, status) {
         // NOT OK - Error!!!
         if(err) {
@@ -56,6 +53,8 @@ router.post('/add', function(req, res, next) {
     });
 });
 
+
+// fix delete with invalid id
 // DELETE
 // http://localhost:3000/books/delete/1 <---- we delete the record with id = 1
 router.get('/delete/:id', function(req, res, next) {
@@ -70,6 +69,7 @@ router.get('/delete/:id', function(req, res, next) {
     });
 });
 
+// fix edit with invalid id
 // UPDATE
 // show form with data
 router.get('/edit/:id', function(req, res, next) {

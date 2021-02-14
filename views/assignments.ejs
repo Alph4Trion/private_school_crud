@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <h1><%= title %></h1>
+  <div>
+    <table>
+      <tr class="bold-center">
+        <td>ID</td>
+        <td>Title</td>
+        <td>Description</td>
+        <td>Submitted Date</td>
+        <td>Oral Mark</td>
+        <td>Total Mark</td>
+        <td>Created_at</td>
+        <td>Updated_at</td>
+      </tr>
+    <% for(var i = 0; i < assignments.length; i++) { %>
+      <tr>
+        <td><%= assignments[i].assignment_id %></td>
+        <td><%= assignments[i].title %></td>
+        <td><%= assignments[i].description %></td>
+        <td><%= assignments[i].sub_date_time %></td>
+        <td><%= assignments[i].oral_mark %></td>
+        <td><%= assignments[i].total_mark %></td>
+    </tr>
+    <% } %>
+    </table>
+  </div>
+  <div id="error"><%= message %></div>
+</body>
+
+</html>

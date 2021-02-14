@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <h1><%= title %></h1>
+  <div>
+    <table>
+      <tr class="bold-center">
+        <td>ID</td>
+        <td>Title</td>
+        <td>Stream</td>
+        <td>Type</td>
+        <td>Start Date</td>
+        <td>End Date</td>
+      </tr>
+    <% for(var i = 0; i < courses.length; i++) { %>
+      <tr>
+       <td><%= courses[i].courseid %></td>
+       <td><%= courses[i].title %></td>
+        <td><%= courses[i].stream %></td>
+        <td><%= courses[i].type %></td>
+        <td><%= courses[i].start_date.toLocaleString() %></td>
+        <td><%= courses[i].end_date.toLocaleString() %></td>
+        
+    </tr>
+    <% } %>
+    </table>
+  </div>
+  <div id="error"><%= message %></div>
+</body>
+
+</html>

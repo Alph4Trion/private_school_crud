@@ -1,6 +1,6 @@
 {
-  "name": "books-crud",
-  "version": "0.0.1",
+  "name": "private-school-crud",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"

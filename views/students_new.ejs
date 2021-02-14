@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="" method="post">
+        First name: <input type="text" name="first_name">
+        Last name: <input type="text" name="last_name">
+        Date of birth: <input placeholder="You must be older than 18!" name="date_of_birth"  max="2003-01-01" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" >
+        Tuition Fees: <input type="number" name="tuition_fees" min="0" max="2500" step="100" placeholder="€">
+        <button type="submit">Add new student</button>
+    </form>
+    <div id="message"><%= message %></div>
+  </body> 
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="" method="post">
+        First name: <input type="text" name="first_name">
+        Last name: <input type="text" name="last_name">
+        <label for="subject">Choose a Subject to teach:</label>
+        <select name="subject" id="subject">
+          <optgroup label="Full Time Courses (8 hours for 3 months)">
+            <option value="Java">Java</option>
+            <option value="C#">C#</option>
+          </optgroup>
+          <optgroup label="Part Time Courses (4 hours for 6 months)">
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+          </optgroup>
+        </select>
+        <button type="submit">Add new trainer</button>
+    </form>
+    <div id="message"><%= message %></div>
+  </body> 
+</html>

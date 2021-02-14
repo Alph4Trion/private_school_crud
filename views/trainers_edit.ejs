@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/trainers/update" method="post">
+        <input type="text" name="id" value="<%= trainer.id %>" hidden>
+        First name: <input type="text" name="first_name" value="<%= trainer.first_name %>">
+        Last name: <input type="text" name="last_name" value="<%= trainer.last_name %>">
+        Subject: <input type="text" name="subject" value="<%= trainer.subject %>">
+        <button type="submit">Update trainer</button>
+    </form>
+    <div id="message"><%= message %></div>
+  </body> 
+</html>

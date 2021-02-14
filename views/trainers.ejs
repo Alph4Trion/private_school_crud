@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+  <h1><%= title %></h1>
+  <div>
+    <table>
+      <tr class="bold-center">
+        <td>ID</td>
+        <td>Name</td>
+        <td>Surname</td>
+        <td>Subject teaching</td>
+        <td>Created_at</td>
+        <td>Updated_at</td>
+      </tr>
+    <% for(var i = 0; i < trainers.length; i++) { %>
+      <tr>
+         <td><%= trainers[i].id %></td>
+          <td><%= trainers[i].first_name %></td>
+          <td><%= trainers[i].last_name %></td>
+          <td><%= trainers[i].subject %></td>
+          <td><%= trainers[i].created_at.toLocaleString() %></td>
+          <td><%= trainers[i].updated_at.toLocaleString() %></td>
+          <td><button><a href="<%= url + '/edit/' + trainers[i].id %>"> Edit</a></button></td>
+          <td><button onclick="deleteTrainer('<%= url %>' + '/delete/' + '<%= trainers[i].id %>')"> Delete</button></td>
+      </tr>
+    <% } %>
+    </table>
+  </div>
+  <div id="error"><%= message %></div>
+  <script>
+    function deleteTrainer(url) {
+      var dialog = confirm("Are you sure you want to delete the specific trainer?");
+      if(dialog) {
+        window.location.replace(url);
+      } else alert("Trainer is safe for now!!!");
+    }
+  </script>
+</body>
+
+</html>
